@@ -1,9 +1,3 @@
-/**
- * I've changed helloWorldApp -> HelloWorldApp // still compiles even small h
- * rintLn -> println
- * Hello World -> Kamusta Mundo!
- */
-
 class HelloWorldApp {
 
     public static void main(String[] args) {
