@@ -1,7 +1,7 @@
 /**
  * I've changed helloWorldApp -> HelloWorldApp // still compiles even small h
  * rintLn -> println
- * Kamusta Mundo!
+ * Hello World -> Kamusta Mundo!
  */
 
 class HelloWorldApp {
