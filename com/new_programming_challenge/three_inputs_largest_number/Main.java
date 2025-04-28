@@ -10,21 +10,21 @@ public class Main {
 
             System.out.println();
             System.out.print("Type 1st number: ");
-            byte firstNum = scanner.nextByte();
+            int firstNum = scanner.nextInt();
 
             System.out.println();
             System.out.print("Type 2nd number: ");
-            byte secondNum = scanner.nextByte();
+            int secondNum = scanner.nextInt();
 
             System.out.println();
             System.out.print("Type 3rd number: ");
-            byte thirdNum = scanner.nextByte();
+            int thirdNum = scanner.nextInt();
             
-            byte[] numbers = {firstNum, secondNum, thirdNum};
+            int[] numbers = {firstNum, secondNum, thirdNum};
 
-            byte max = numbers[0];
+            int max = numbers[0];
 
-            for (byte i = 1; i < numbers.length; i++) {
+            for (int i = 1; i < numbers.length; i++) {
                 if(numbers[i] > max)
                     max = numbers[i];
             }
