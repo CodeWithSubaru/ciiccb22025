@@ -10,7 +10,7 @@ public class Main {
             byte input = scanner.nextByte();
 
             String result = 
-                (input == 0 ? "Zero ": "") + 
+                (input == 0 ? "Zero": "") + 
                 (input % 2 == 0 ? "Even " : "Odd ") + 
                 (input < 0 ? "Negative" : "Positive");
 
