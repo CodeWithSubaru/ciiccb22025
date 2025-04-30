@@ -1,4 +1,4 @@
-package day_3;
+package chapter1.day_3;
 
 public class Main { 
 
