@@ -6,18 +6,15 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+            System.out.print("Enter your number: ");
             byte input = scanner.nextByte();
 
-            String isEvenOrOdd = input % 2 == 0 ? "Even" : "Odd";
+            String result = 
+                (input == 0 ? "Zero ": "") + 
+                (input % 2 == 0 ? "Even " : "Odd ") + 
+                (input < 0 ? "Negative" : "Positive");
 
-            String result = "Zero"; 
-            if(input > 0) {
-                result = "Positive";
-            } else if(input < 0) {
-                result = "Negative";
-            }
-
-            System.out.println("Even or Odd: " + isEvenOrOdd);
-            System.out.println("Positive, Negative or Zero: " + result);
+            System.out.println(input + " is " + result + " number");
+            scanner.close();
     }
 }
