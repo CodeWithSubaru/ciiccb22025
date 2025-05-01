@@ -6,15 +6,16 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-            System.out.print("Enter your number: ");
-            byte input = scanner.nextByte();
+            System.out.print("Enter your numbers to add w/ comma separated (1,2,4): ");
+            String inputs = scanner.nextLine();
 
-            String result = 
-                (input == 0 ? "Zero ": "") + 
-                (input % 2 == 0 ? "Even " : "Odd ") + 
-                (input < 0 ? "Negative" : "Positive");
+            int total = 0;
 
-            System.out.println(input + " is " + result + " number");
-            scanner.close();
+            String[] integers = inputs.split(",");
+
+            for(String i : integers)
+                total += Integer.parseInt(i);
+
+            System.out.println(total);
     }
 }
