@@ -6,7 +6,7 @@ public class StringPalindrome {
     private final static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Input your string: ");
+        System.out.print("Input your string: ");
         String input = scanner.nextLine();
 
         // last implementation
@@ -22,14 +22,14 @@ public class StringPalindrome {
         // System.out.println(stringInput.toString().equals(reverseWord.toString()) ? "Input is a palindrome" : "Input is not a palindrome");
 
         System.out.println(
-                new StringBuilder(input)
+            "\nInput is a " + (
+                input
                 .toString()
-                .equals(new StringBuilder("")
+                .equals(new StringBuilder(input)
                 .reverse()
-                .toString()
-            )
-            ? "Input is a palindrome" 
-            : "Input is not a palindrome"
-        );
+                .toString()) 
+            ? "palindrome" 
+            : "not a palindrome"
+        ));
     }
 }
