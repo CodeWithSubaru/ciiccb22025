@@ -1,4 +1,4 @@
-package com.activities;
+package activities;
 
 public class Task2 {
     
