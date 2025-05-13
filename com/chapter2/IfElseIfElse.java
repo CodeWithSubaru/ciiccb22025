@@ -1,4 +1,4 @@
-package com.chapter2;
+package chapter2;
 
 class IfElseIfElse {
 
