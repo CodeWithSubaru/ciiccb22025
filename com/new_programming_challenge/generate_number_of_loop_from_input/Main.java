@@ -1,4 +1,4 @@
-package new_programming_challenge.generate_number_of_loop_using_input;
+package new_programming_challenge.generate_number_of_loop_from_input;
 
 import java.util.Scanner;
 
