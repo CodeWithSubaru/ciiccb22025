@@ -6,7 +6,7 @@ public class Main {
 
         for(int row = 1; row <= MAX_NUM; row++) {
             for(int col = 1; col <= MAX_NUM; col++)
-                System.out.print((row*col) + "\t");
+                System.out.print((row * col) + "\t");
 
             System.out.println();
         }
