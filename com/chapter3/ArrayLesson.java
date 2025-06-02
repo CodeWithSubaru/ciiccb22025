@@ -83,8 +83,8 @@ public class ArrayLesson {
         ArrayList<String> one = new ArrayList<>();
         List<String> two = new ArrayList<>();
 
-        one.add(1);
-        one.contains(1);
+        // one.add(1);
+        // one.contains(1);
         System.out.println(one.equals(two));
         two.add("2");
         System.out.println(one.equals(two));
