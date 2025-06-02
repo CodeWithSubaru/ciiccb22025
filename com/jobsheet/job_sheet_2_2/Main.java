@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 public class Main {
 	public static void main(String[] args) {
 		try {
-				String query = "SELECT * FROM ACCOUNTS WHERE id = ?";
+				String query = "SELECT * FROM BALANCE WHERE id = ?";
 				Connection db = DB.getConnection();
 				PreparedStatement stmt = db.prepareStatement(query);
 				stmt.setInt(1, 1);
