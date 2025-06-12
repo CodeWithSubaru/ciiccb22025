@@ -39,7 +39,7 @@ public class Transactions {
 	
 	public static List<Transaction> viewUserAll(int userId) {
 		try {
-			String query = "SELECT t.*, sender.name AS account_name, receiver.name AS receiver_name, sender.name AS sender_name FROM TRANSACTIONS t JOIN USERS sender ON sender.id = t.account_id LEFT JOIN USERS receiver ON receiver.id = t.transferToId WHERE account_id = ?";
+			String query = "SELECT t.*, sender.name AS sender_name, receiver.name AS receiver_name, sender.name AS sender_name FROM TRANSACTIONS t JOIN USERS sender ON sender.id = t.account_id LEFT JOIN USERS receiver ON receiver.id = t.transferToId WHERE account_id = ?";
 			db = DB.getConnection();
 			stmt = db.prepareStatement(query);
 			stmt.setInt(1, userId);
@@ -68,7 +68,7 @@ public class Transactions {
 		Transaction transaction = null;
 		
 		try {
-			query = "SELECT t.*, sender.name AS account_name, sender.name AS sender_name, receiver.name AS receiver_name FROM TRANSACTIONS t JOIN USERS sender ON sender.id = t.account_id LEFT JOIN USERS receiver ON receiver.id = t.transferToId WHERE id = ?";
+			query = "SELECT t.*, sender.name AS account_name, sender.name AS sender_name, receiver.name AS receiver_name FROM TRANSACTIONS t JOIN USERS sender ON sender.id = t.transferFromId LEFT JOIN USERS receiver ON receiver.id = t.transferToId WHERE t.id = ?";
 			db = DB.getConnection();
 			stmt = db.prepareStatement(query);
 			stmt.setInt(1, transactionId);
