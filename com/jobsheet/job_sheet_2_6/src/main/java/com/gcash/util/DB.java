@@ -2,9 +2,8 @@ package com.gcash.util;
 
 import com.gcash.constants.Constant;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import javax.xml.transform.Result;
+import java.sql.*;
 
 public class DB {
 		private static final String URL = Constant.URL;
@@ -14,4 +13,38 @@ public class DB {
 		public static Connection getConnection() throws SQLException {
 			return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		}
+		
+		public static ResultSet getUserAccountById(int id) {
+			try {
+				Connection db = getConnection();
+				PreparedStatement stmt = db.prepareStatement("SELECT * FROM USERS user JOIN BALANCE balance ON user.id = balance.userId WHERE user.id = ?");
+				stmt.setInt(1, id);
+				ResultSet rs = stmt.executeQuery();
+				
+				if(!rs.next())
+					throw new Exception("Something went wrong. Please try again later!");
+				
+				return rs;
+			} catch (Exception e) {
+				e.getLocalizedMessage();
+				return null;
+			}
+		}
+	
+	public static ResultSet getUserAccountByNumber(String number) {
+		try {
+			Connection db = getConnection();
+			PreparedStatement stmt = db.prepareStatement("SELECT * FROM USERS user JOIN BALANCE balance ON user.id = balance.userId WHERE user.number = ?");
+			stmt.setString(1, number);
+			ResultSet rs = stmt.executeQuery();
+			
+			if(!rs.next())
+				throw new Exception("Something went wrong. Please try again later!");
+			
+			return rs;
+		} catch (Exception e) {
+			e.getLocalizedMessage();
+			return null;
+		}
+	}
 }
