@@ -11,11 +11,14 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 
 public class CashTransfer {
-	private static String query;
-	private static Connection db;
-	private static PreparedStatement stmt;
 	
 	public static void cashTransfer(BigDecimal amount, String transferToNumber, UserAuthentication auth) {
+		String query;
+		
+		Connection db;
+		
+		PreparedStatement stmt;
+		
 		try {
 			db = DB.getConnection();
 			query = "SELECT * FROM USERS u JOIN BALANCE b ON u.id = b.userId WHERE u.number = ?";
@@ -38,9 +41,6 @@ public class CashTransfer {
 					
 			if (auth.getUserSession().getBalance().compareTo(amount) < 0)
 				throw new Exception("Error: Insufficient balance.");
-			
-			auth.getUserSession().deductBalance(amount);
-			
 			
 			query = "INSERT INTO TRANSACTIONS (amount, name, account_id, date, transferToId, transferFromId) VALUES (?, ?, ?, ?, ?, ?)";
 			stmt = db.prepareStatement(query);
@@ -74,15 +74,4 @@ public class CashTransfer {
 		}
 	}
 	
-	public static ResultSet selectBalance(int id) {
-		try {
-			query = "SELECT * FROM BALANCE WHERE userId = ?";
-			stmt = db.prepareStatement(query);
-			stmt.setInt(1, id);
-			return stmt.executeQuery();
-		} catch (Exception e) {
-			System.out.println("Error: Something went wrong");
-			return null;
-		}
-	}
 }
